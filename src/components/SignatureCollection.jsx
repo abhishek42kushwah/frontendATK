@@ -1,12 +1,12 @@
 import React from "react";
-import { occasionImages } from "../pages/StaticData";
+import { Signature } from "../pages/StaticData";
 import design from "../assets/images/Untitled design 1.jpg"; 
 
-const ShopByOccasion = () => {
+const SignatureCollection = () => {
   return (
     <section className="py-10 px-6 lg:px-20 text-center">
-      <h2 className="text-1xl md:text-3xl font-[Kalnia]  text-[#052A3D] ">
-        Shop By Occasion
+      <h2 className="text-1xl md:text-4xl font-[Kalnia]  text-[#052A3D] ">
+       Signature Collection
       </h2>
 
       <div className="flex justify-center mb-8">
@@ -18,7 +18,7 @@ const ShopByOccasion = () => {
       </div>
 
       <div className="flex flex-wrap justify-center gap-20 mb-8">
-        {occasionImages.map((item, index) => (
+        {Signature.map((item, index) => (
           <div
             key={index}
             className="relative rounded-lg overflow-hidden w-[280px] sm:w-[320px] md:w-[380px] shadow-md group cursor-pointer"
@@ -28,7 +28,7 @@ const ShopByOccasion = () => {
               alt={item.label}
               className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
             />
-            <div className="absolute bottom-0 left-0 right-0 bg-[#F09D8D]/90 py-4 text-[#7F0A18] font-[Kalnia] text-xl">
+            <div className="absolute bottom-0 left- right-[-1] pl-6    py-4 text-white font-[Kalnia] text-xl ">
               {item.label}
             </div>
           </div>
@@ -42,4 +42,4 @@ const ShopByOccasion = () => {
   );
 };
 
-export default ShopByOccasion;
+export default SignatureCollection;

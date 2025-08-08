@@ -6,7 +6,7 @@ import design from "../assets/images/Untitled design 1.jpg";
 const ShopByTrend = () => {
   return (
     <section className="py-12 bg-white text-center">
-      <h2 className="text-4xl font-[Kalnia]  text-[#052A3D]">
+      <h2 className="text-3xl font-[Kalnia]  text-[#052A3D]">
         Shop By Trend
       </h2>
       <div className="flex justify-center mb-8">

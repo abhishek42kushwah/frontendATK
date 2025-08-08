@@ -4,7 +4,7 @@ import design from "../assets/images/Untitled design 1.jpg";
 const FabricSection = () => {
   return (
     <div className="py-12 px-6 text-center">
-      <h2 className="text-4xl font-[Kalnia]  text-[#053b46] mb-2">
+      <h2 className="text-3xl font-[Kalnia]  text-[#053b46] ">
         Shop By Fabric
       </h2>
       <div className="flex justify-center items-center ">

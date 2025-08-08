@@ -37,7 +37,7 @@ function LoginPage() {
         await login(token);
 
         toast.success("Welcome to atulya karigari!", { position: "top-right" });
-        navigate("/home");
+        navigate("/");
       } else {
         toast.error(`Login Failed: ${data.message}`, { position: "top-right" });
       }
