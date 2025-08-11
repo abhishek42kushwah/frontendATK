@@ -86,16 +86,37 @@ export const testimonials = [
   },
 ];
 
-export const drapedImages = [
-  {
-    index: 1,
-    src: Instagram01,
-    alt: "Woman Draped",
-    instagram: "@atulyakarigariindia",
-    isFeatured: true,
-  },
-  { index: 2, src: Instagram02, alt: "Couple Draped" },
-  { index: 3, src: Instagram03, alt: "Sitashma" },
-  { index: 4, src: Instagram04, alt: "Blue Saree" },
-  { index: 5, src: Instagram05, alt: "Woman Outdoors" },
-];
+export   const drapedImages = [
+    {
+      index: 1,
+      src: Instagram01,
+      alt: "Woman Draped",
+      instagram: "@atulyakarigariindia",
+      isFeatured: true,
+      className: "md:row-span-2"
+    },
+    {
+      index: 2,
+      src: Instagram02,
+      alt: "Couple Draped",
+      className: ""
+    },
+    {
+      index: 3,
+      src: Instagram03,
+      alt: "Sitashma",
+      className: ""
+    },
+    {
+      index: 4,
+      src: Instagram04,
+      alt: "Blue Saree",
+      className: ""
+    },
+    {
+      index: 5,
+      src: Instagram05,
+      alt: "Woman Outdoors",
+      className: ""
+    }
+  ];
