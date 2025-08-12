@@ -42,7 +42,7 @@ function SignInPage() {
 
       const successMessage = response.data?.message || "Signup successful!";
       toast.success(successMessage, { position: "top-right" });
-      navigate("/");
+      navigate("/login");
     } catch (error) {
       const errorMessage =
         error.message || "Something went wrong";
