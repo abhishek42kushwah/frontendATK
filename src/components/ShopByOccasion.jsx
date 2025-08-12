@@ -4,7 +4,7 @@ import design from "../assets/images/Untitled design 1.jpg";
 
 const ShopByOccasion = () => {
   return (
-    <section className="py-10 px-6 lg:px-20 text-center">
+    <section className="py-10 px-6  text-center">
       <h2 className="text-1xl md:text-3xl font-[Kalnia]  text-[#052A3D] ">
         Shop By Occasion
       </h2>
@@ -17,11 +17,11 @@ const ShopByOccasion = () => {
         />
       </div>
 
-      <div className="flex lg:flex-row flex-wrap justify-center gap-14 mb-8">
+      <div className="flex  flex-wrap justify-center gap-14 mb-8">
         {occasionImages.map((item, index) => (
           <div
             key={index}
-            className="relative rounded-lg overflow-hidden w-[280px] sm:w-[320px] md:w-[380px] shadow-md group cursor-pointer"
+            className="relative rounded-lg overflow-hidden  shadow-md group cursor-pointer"
           >
             <img
               src={item.src}

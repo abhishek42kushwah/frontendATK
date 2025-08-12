@@ -17,7 +17,7 @@ const DrapedByAtulya = () => {
       </div>
 
       {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:px-24 px-6 mx-auto auto-rows-[280px]">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6  px-6 mx-auto auto-rows-[280px]">
         {drapedImages.map((item, index) => (
           <div
             key={index}

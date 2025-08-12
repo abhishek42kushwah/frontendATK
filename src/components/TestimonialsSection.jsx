@@ -4,7 +4,7 @@ import testimonialsImage from "../assets/images/Testimonials.png";
 import design from "../assets/images/Untitled design 1.jpg";
 export default function TestimonialsSection() {
   return (
-    <section className="py-10 lg:px-20 px-6 bg-white">
+    <section className="py-10  px-6 bg-white">
       <div className="justify-center flex">
         <h2 className="text-center  text-4xl md:text-3xl font-[Kalnia]  text-[#052A3D]   mb-8 relative inline-block">
           Testimonials

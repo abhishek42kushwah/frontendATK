@@ -214,7 +214,7 @@ function SignInPage() {
                 <p className="text-sm">
                   Already have an account?{" "}
                   <a
-                    href="/"
+                    href="/login"
                     className="text-blue-600 font-medium cursor-pointer"
                   >
                     Log in

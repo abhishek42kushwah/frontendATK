@@ -7,7 +7,7 @@ import FooterLogo from "../assets/images/ATK_Logo.jpg";
 import FooterImages from "../assets/images/footer 1.jpg"
 const Footer = () => {
   return (
-    <footer className="bg-white  border-[#7F0A1833] border-t-2  text-[#052A3D] lg:px-20 px-6 ">
+    <footer className="bg-white  border-[#7F0A1833] border-t-2  text-[#052A3D]  px-6 ">
       <div className=" mx-auto grid grid-cols-1  md:grid-cols-2 lg:grid-cols-4 gap-8">
         {/* Logo & Tagline */}
         <div className="col-span-1 lg:col-span-2 border-[#7F0A1833] lg:border-r-2 py-12 ">
