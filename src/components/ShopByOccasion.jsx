@@ -1,4 +1,4 @@
-import React from "react";
+
 import { occasionImages } from "../pages/StaticData";
 import design from "../assets/images/Untitled design 1.jpg"; 
 
@@ -17,7 +17,7 @@ const ShopByOccasion = () => {
         />
       </div>
 
-      <div className="flex flex-wrap justify-center gap-20 mb-8">
+      <div className="flex flex-wrap justify-center gap-14 mb-8">
         {occasionImages.map((item, index) => (
           <div
             key={index}
