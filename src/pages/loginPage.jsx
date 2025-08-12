@@ -6,12 +6,11 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../services/AuthContext";
 import { toast } from "react-toastify";
 import { IoHome } from "react-icons/io5";
-
+import LoginImage from "../assets/loginImage.jpg";
+import logo from "../assets/brandlogo.png";
 function LoginPage() {
   const BASE_URL = import.meta.env.VITE_APP_API;
   const [showPassword, setShowPassword] = useState(false);
-  const LoginImage = "../../public/loginImage.jpg";
-  const logo = "../../public/brandlogo.png";
   const { login } = useAuth();
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);

@@ -10,9 +10,9 @@ import {
 import { Heart, ShoppingCart } from "lucide-react";
 import { useAuth } from "../services/AuthContext";
 import { useNavigate } from "react-router-dom";
-
+import HomeLogo from "../assets/brandlogo.png";
 const Navbar = () => {
-  const HomeLogo = "../../public/brandlogo.png";
+  
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const { user, logout } = useAuth();
