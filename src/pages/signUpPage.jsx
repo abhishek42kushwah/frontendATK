@@ -6,8 +6,6 @@ import axios from "axios";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-const LoginImage = "../../public/signupImage.webp";
-const logo = "../../public/brandlogo.png";
 
 const validationSchema = Yup.object({
   name: Yup.string().required("Name is required"),
@@ -25,6 +23,7 @@ const validationSchema = Yup.object({
 });
 
 function SignInPage() {
+  const logo = "../../public/brandlogo.png";
   const BASE_URL = import.meta.env.VITE_APP_API;
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -57,7 +56,7 @@ function SignInPage() {
     <div
       className="h-full w-full flex items-center lg:justify-start md:justify-start pl-6 lg:p-20 md:p-16 bg-cover bg-center overflow-hidden"
       style={{
-        backgroundImage: `url(${LoginImage})`,
+        backgroundImage: 'url("../../public/signupImage.webp")',
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
