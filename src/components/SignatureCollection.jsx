@@ -5,7 +5,7 @@ import design from "../assets/images/Untitled design 1.jpg";
 const SignatureCollection = () => {
   return (
     <section className="py-10 px-6  text-center">
-      <h2 className="text-1xl md:text-4xl font-[Kalnia]  text-[#052A3D] ">
+      <h2 className="text-3xl  font-[Kalnia]  text-[#052A3D] ">
        Signature Collection
       </h2>
 

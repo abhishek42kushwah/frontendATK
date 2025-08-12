@@ -5,7 +5,7 @@ import design from "../assets/images/Untitled design 1.jpg";
 const ShopByOccasion = () => {
   return (
     <section className="py-10 px-6  text-center">
-      <h2 className="text-1xl md:text-3xl font-[Kalnia]  text-[#052A3D] ">
+      <h2 className="text-3xl md:text-3xl font-[Kalnia]  text-[#052A3D] ">
         Shop By Occasion
       </h2>
 

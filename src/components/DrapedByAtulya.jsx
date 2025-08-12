@@ -29,11 +29,11 @@ const DrapedByAtulya = () => {
               className="w-full h-full object-cover"
             />
             {item.isFeatured && (
-              <div className="absolute bottom-0 left-0 w-full bg-white py-2 flex flex-col items-center shadow-md">
+              <div className="absolute bottom-0 left-0 w-full bg-white py-6 flex flex-col items-center shadow-md">
                 <img
                   src={ImagesInstageam}
                   alt="instagram"
-                  className="w-8 h-8 mb-1"
+                  className="w-10 h-10 mb-1 absolute bottom-12"
                 />
                 <span className="text-pink-500 italic hover:underline">
                   {item.instagram}
