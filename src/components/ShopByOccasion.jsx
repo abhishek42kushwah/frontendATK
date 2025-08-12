@@ -17,7 +17,7 @@ const ShopByOccasion = () => {
         />
       </div>
 
-      <div className="flex flex-wrap justify-center gap-14 mb-8">
+      <div className="flex lg:flex-row flex-wrap justify-center gap-14 mb-8">
         {occasionImages.map((item, index) => (
           <div
             key={index}

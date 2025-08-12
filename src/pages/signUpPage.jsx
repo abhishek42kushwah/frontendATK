@@ -6,8 +6,8 @@ import axios from "axios";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-const LoginImage = "/public/signupImage.webp";
-const logo = "/public/brandlogo.png";
+const LoginImage = "../../public/signupImage.webp";
+const logo = "../../public/brandlogo.png";
 
 const validationSchema = Yup.object({
   name: Yup.string().required("Name is required"),

@@ -10,8 +10,8 @@ import { IoHome } from "react-icons/io5";
 function LoginPage() {
   const BASE_URL = import.meta.env.VITE_APP_API;
   const [showPassword, setShowPassword] = useState(false);
-  const LoginImage = "/public/pexels.jpg";
-  const logo = "/public/brandlogo.png";
+  const LoginImage = "../../public/loginImage.jpg";
+  const logo = "../../public/brandlogo.png";
   const { login } = useAuth();
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
