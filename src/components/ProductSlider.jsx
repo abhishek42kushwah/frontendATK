@@ -1,7 +1,7 @@
 import React from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
+import "swiper/css";
 import design from "../assets/images/Untitled design 1.jpg";
 import { sarees } from "../pages/StaticData";
 import { Eye, ShoppingCart } from "lucide-react";
@@ -9,26 +9,6 @@ import { useNavigate } from "react-router-dom";
 
 const ProductSlider = () => {
   const navigate = useNavigate();
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 600,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    pauseOnHover: true,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: { slidesToShow: 2 },
-      },
-      {
-        breakpoint: 640,
-        settings: { slidesToShow: 1 },
-      },
-    ],
-  };
 
   return (
     <div className="py-12 px-5">
@@ -44,31 +24,37 @@ const ProductSlider = () => {
         />
       </div>
 
-      <Slider {...settings}>
+      <Swiper
+        modules={[Autoplay]}
+        spaceBetween={20}
+        slidesPerView={4}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        loop={true}
+        breakpoints={{
+          1024: { slidesPerView: 4 },
+          768: { slidesPerView: 2 },
+          0: { slidesPerView: 1 },
+        }}
+      >
         {sarees.map((product) => (
-          <div key={product.id} className="px-3">
-            {/* Product Image with Name Overlay */}
+          <SwiperSlide key={product.id}>
             <div className="relative group rounded-xl overflow-hidden shadow hover:shadow-lg transition">
-              {/* Price Badge */}
               <div className="absolute top-3 left-3 bg-[#6A1B1A] text-white text-sm font-semibold px-3 py-1 rounded-full shadow">
                 ₹ {product.price}
               </div>
 
-              {/* Image */}
               <img
                 src={product.image}
                 alt={product.name}
                 className="w-full h-[450px] object-cover rounded-xl"
               />
 
-              {/* Gradient + Name */}
               <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 py-3">
                 <h3 className="text-white text-lg font-[Kalnia]">
                   {product?.name}
                 </h3>
               </div>
 
-              {/* Hover Overlay */}
               <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-all duration-300">
                 <button
                   className="flex items-center gap-2 bg-white text-[#6A1B1A] px-5 py-2 rounded-full font-medium hover:bg-gray-100 transition"
@@ -89,9 +75,9 @@ const ProductSlider = () => {
                 </button>
               </div>
             </div>
-          </div>
+          </SwiperSlide>
         ))}
-      </Slider>
+      </Swiper>
     </div>
   );
 };
