@@ -9,7 +9,8 @@ import Popup from "./OrderSuccessPopup";
 const CartPage = () => {
   const { cart, removeFromCart, updateQuantity } = useAuth();
   const [shipping, setShipping] = useState("pickup");
-  const [open, setOpen] = useState(false); // ✅ fixed typo
+  const [open, setOpen] = useState(false);
+
   const totalPrice = cart.reduce((sum, item) => {
     const numericPrice = parseFloat(item.price.toString().replace(/,/g, ""));
     return sum + numericPrice * item.quantity;
@@ -48,7 +49,8 @@ const CartPage = () => {
             <>
               {/* Cart Items */}
               <div className="bg-white rounded-lg shadow overflow-hidden">
-                <div className="grid grid-cols-12 font-semibold text-gray-600 border-b px-4 py-3">
+                {/* Table Header - only for desktop */}
+                <div className="hidden sm:grid grid-cols-12 font-semibold text-gray-600 border-b px-4 py-3">
                   <div className="col-span-6">Product</div>
                   <div className="col-span-2 text-center">Price</div>
                   <div className="col-span-2 text-center">Qty</div>
@@ -62,9 +64,10 @@ const CartPage = () => {
                   return (
                     <div
                       key={item.id}
-                      className="grid grid-cols-12 items-center px-4 py-4 border-b"
+                      className="flex flex-col sm:grid sm:grid-cols-12 sm:items-center px-4 py-4 border-b gap-4"
                     >
-                      <div className="col-span-6 flex items-center gap-4">
+                      {/* Product Info */}
+                      <div className="sm:col-span-6 flex items-center gap-4">
                         <img
                           src={item.image || "https://via.placeholder.com/80"}
                           alt={item.name}
@@ -76,17 +79,16 @@ const CartPage = () => {
                         </div>
                       </div>
 
-                      <div className="col-span-2 text-center font-medium">
+                      {/* Price */}
+                      <div className="sm:col-span-2 text-left sm:text-center font-medium">
                         ₹ {numericPrice.toLocaleString("en-IN")}
                       </div>
 
-                      <div className="col-span-2 flex items-center justify-center gap-2">
+                      {/* Qty */}
+                      <div className="sm:col-span-2 flex items-center justify-start sm:justify-center gap-2">
                         <button
                           onClick={() =>
-                            updateQuantity(
-                              item.id,
-                              Math.max(1, item.quantity - 1)
-                            )
+                            updateQuantity(item.id, Math.max(1, item.quantity - 1))
                           }
                           className="p-1 rounded-full bg-gray-100 hover:bg-gray-200"
                         >
@@ -94,21 +96,17 @@ const CartPage = () => {
                         </button>
                         <span>{item.quantity}</span>
                         <button
-                          onClick={() =>
-                            updateQuantity(item.id, item.quantity + 1)
-                          }
+                          onClick={() => updateQuantity(item.id, item.quantity + 1)}
                           className="p-1 rounded-full bg-gray-100 hover:bg-gray-200"
                         >
                           <Plus size={16} />
                         </button>
                       </div>
 
-                      <div className="col-span-2 flex items-center justify-end gap-4">
+                      {/* Total + Remove */}
+                      <div className="sm:col-span-2 flex items-center justify-between sm:justify-end gap-4">
                         <span className="font-semibold text-green-600">
-                          ₹{" "}
-                          {(numericPrice * item.quantity).toLocaleString(
-                            "en-IN"
-                          )}
+                          ₹ {(numericPrice * item.quantity).toLocaleString("en-IN")}
                         </span>
                         <button
                           onClick={() => removeFromCart(item.id)}
@@ -123,8 +121,9 @@ const CartPage = () => {
               </div>
 
               {/* Summary */}
-              <div className="mt-6 bg-white p-6 rounded-lg shadow flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                <div>
+              <div className="mt-6 bg-white p-6 rounded-lg shadow flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+                {/* Shipping Mode */}
+                <div className="w-full md:w-1/2">
                   <h3 className="font-semibold mb-3">Choose shipping mode:</h3>
                   <div className="flex flex-col gap-2">
                     <label className="flex items-center gap-2">
@@ -150,7 +149,8 @@ const CartPage = () => {
                   </div>
                 </div>
 
-                <div className="w-full md:w-auto bg-gray-50 p-4 rounded-lg shadow-inner">
+                {/* Price Summary */}
+                <div className="w-full md:w-1/3 bg-gray-50 p-4 rounded-lg shadow-inner">
                   <div className="flex justify-between mb-2">
                     <span>Subtotal:</span>
                     <span>₹ {totalPrice.toLocaleString("en-IN")}</span>
