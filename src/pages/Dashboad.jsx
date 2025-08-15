@@ -12,6 +12,7 @@ import AfterHome from "../components/AfterHome";
 import SignatureCollection from "../components/SignatureCollection";
 import WeavingStory from "../components/WeavingStory";
 import { useAuth } from "../services/AuthContext";
+import ProductSlider from "../components/ProductSlider";
 
 function Dashboad() {
   const { user } = useAuth();
@@ -29,6 +30,7 @@ function Dashboad() {
             <SignatureCollection />
             <FabricSection />
             <WeavingStory />
+            <ProductSlider/>
             <ShopByTrend />
             <TestimonialsSection />
             <DrapedByAtulya />

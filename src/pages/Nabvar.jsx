@@ -9,10 +9,19 @@ import {
 } from "react-icons/fa";
 import { Heart, ShoppingCart } from "lucide-react";
 import { useAuth } from "../services/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import HomeLogo from "../assets/brandlogo.png";
 const Navbar = () => {
-  
+  const { cart } = useAuth();
+
+  useEffect(() => {
+    if (cart?.length) {
+      setAnimate(true);
+      const timeout = setTimeout(() => setAnimate(false), 100); 
+      return () => clearTimeout(timeout); 
+    }
+  });
+  const [animate, setAnimate] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const { user, logout } = useAuth();
@@ -56,10 +65,11 @@ const Navbar = () => {
       </div>
 
       <div className="flex items-center justify-between py-4 px-4 md:px-12 relative">
-        {/* Logo */}
-        <div className="flex items-center space-x-2">
-          <img src={HomeLogo} className="object-contain" width={200} />
-        </div>
+        <Link to={"/"}>
+          <div className="flex items-center space-x-2">
+            <img src={HomeLogo} className="object-contain" width={200} />
+          </div>
+        </Link>
 
         {/* Mobile Menu Toggle */}
         <div className="md:hidden">
@@ -74,10 +84,18 @@ const Navbar = () => {
 
         {/* Navigation Links */}
         <div className="hidden md:flex space-x-8 text-gray-700 font-medium">
-          <a href="#" className="hover:text-[#700014]">HANDLOOM</a>
-          <a href="#" className="hover:text-[#700014]">SHOP BY OCCASION</a>
-          <a href="#" className="hover:text-[#700014]">CRAFT STORIES</a>
-          <a href="#" className="hover:text-[#700014]">ABOUT US</a>
+          <a href="#" className="hover:text-[#700014]">
+            HANDLOOM
+          </a>
+          <a href="#" className="hover:text-[#700014]">
+            SHOP BY OCCASION
+          </a>
+          <a href="#" className="hover:text-[#700014]">
+            CRAFT STORIES
+          </a>
+          <a href="#" className="hover:text-[#700014]">
+            ABOUT US
+          </a>
         </div>
 
         {/* Desktop Right Section */}
@@ -90,8 +108,22 @@ const Navbar = () => {
             />
             <FaSearch className="absolute right-3 top-2.5 text-[#700014]" />
           </div>
-          <Heart className="cursor-pointer" />
-          <ShoppingCart className="cursor-pointer" />
+          <Heart className="cursor-pointer" size={30}/>
+          <div className="relative cursor-pointer">
+          <Link  to={'/cart'}>
+            <ShoppingCart className="text-[#700014]" size={30} />
+         
+            {cart?.length > 0 && (
+              <span
+                className={`absolute top-0 right-0 bg-lime-400   text-white text-xs font-bold px-1.5 py-0.5 rounded-full ${
+                  animate ? "animate-bounce" : ""
+                }`}
+              >
+                {cart.length}
+              </span>
+            )}
+            </Link>
+          </div>
           <div className="relative" ref={dropdownRef}>
             {user ? (
               <button
@@ -143,10 +175,18 @@ const Navbar = () => {
         {mobileMenuOpen && (
           <div className="absolute top-full left-0 w-full bg-white shadow-md md:hidden z-50">
             <div className="flex flex-col items-start px-6 py-4 space-y-4">
-              <a href="#" className="text-[#700014] font-medium">HANDLOOM</a>
-              <a href="#" className="text-[#700014] font-medium">SHOP BY OCCASION</a>
-              <a href="#" className="text-[#700014] font-medium">CRAFT STORIES</a>
-              <a href="#" className="text-[#700014] font-medium">ABOUT US</a>
+              <a href="#" className="text-[#700014] font-medium">
+                HANDLOOM
+              </a>
+              <a href="#" className="text-[#700014] font-medium">
+                SHOP BY OCCASION
+              </a>
+              <a href="#" className="text-[#700014] font-medium">
+                CRAFT STORIES
+              </a>
+              <a href="#" className="text-[#700014] font-medium">
+                ABOUT US
+              </a>
 
               <div className="relative w-full">
                 <input
@@ -159,7 +199,22 @@ const Navbar = () => {
 
               <div className="flex space-x-4 pt-2 items-center">
                 <FaHeart className="text-[#700014] cursor-pointer" />
-                <FaShoppingCart className="text-[#700014] cursor-pointer" />
+                <div className="relative cursor-pointer">
+                <Link  to={'/cart'}>
+                  <FaShoppingCart className="text-[#700014]" />
+
+                  {cart?.length > 0 && (
+                    <span
+                      className={`absolute top-0 right-0 bg-red-600 text-white text-xs font-bold px-1.5 py-0.5 rounded-full ${
+                        animate ? "animate-bounce" : ""
+                      }`}
+                    >
+                      {cart.length}
+                    </span>
+                  )}
+                </Link>
+                </div>
+
                 {user ? (
                   <>
                     <img
